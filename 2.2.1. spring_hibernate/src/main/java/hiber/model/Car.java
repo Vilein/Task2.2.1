@@ -3,7 +3,7 @@ package hiber.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "car")
+@Table(name = "cars")
 public class Car {
 
 
@@ -12,10 +12,12 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private String model;
-    @Column
     private int series;
-    public Car() {}
+    @Column
+    private String model;
+
+    public Car() {
+    }
 
     public Car(String model, int series) {
         this.model = model;
@@ -45,4 +47,15 @@ public class Car {
     public void setModel(String model) {
         this.model = model;
     }
+
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", series=" + series +
+                ", model='" + model + '\'' +
+                '}';
+    }
 }
+
